@@ -2,19 +2,6 @@
 
 # This script is designed to download Maven 
 # in a newly installed CentOS 7. 
-# By-Operation: It also install git and MySQL 
-# in case that they are needed in the near future. 
-
-# install git and MySQL
-yum -y install git
-yum -y install mysql
-yum -y groupinstall "Development Tools" 
-yum -y install openssl-devel libcurl-devel expat-devel perl-devel 
-cd /usr/ 
-git clone https://github.com/git/git
-cd git
-make 
-make prefix=/usr install
 
 # Download Java Development Kit 
 echo Downloading Java Development Kit
