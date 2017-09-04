@@ -15,12 +15,12 @@ then
 fi
 cd $JAVA_DIR
 curl -s -L -H "Cookie: oraclelicense=accept-securebackup-cookie" -O $JDK_URL
-ls -lh
+# ls -lh
 tar -zxf $JDK_FILENAME
-rm $JDK_FILENAME 
 JAVA_HOME="$PWD/$(tar -tf $JDK_FILENAME | head -n1 | cut -d / -f 1)" 
 JRE_HOME=$JAVA_HOME/jre 
 PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+rm $JDK_FILENAME 
 
 # Download Maven 
 echo Downloading Maven 
@@ -35,8 +35,8 @@ cd $JAVA_DIR
 curl -s -O $MVN_URL
 MVN_HOME=$PWD/$(tar -tf $MVN_FILENAME | head -n1 | cut -d / -f 1)
 tar -zxf $MVN_FILENAME
-rm $MVN_FILENAME
 PATH=$PATH:$MVN_HOME/bin
+rm $MVN_FILENAME
  
 # Set Up the Global Variables 
 echo Writing Up Tp /etc/profile.d/CUSTOM_mvn_var.sh
