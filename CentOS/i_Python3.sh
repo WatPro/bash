@@ -51,5 +51,7 @@ rm --force --recursive "$P_PATH/$FILE_NAME" "$P_PATH/$FOLDER_NAME"
 # IPython is a better alternative than the Python 3 native #
 # interactive mode.                                        #
 # # pip3 install ipython                                   #
+# or                                                       #
+# # python3 -m pip install ipython                         #      
 ############################################################
  
