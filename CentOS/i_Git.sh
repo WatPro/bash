@@ -7,15 +7,20 @@
 ####################################################################################################
  
 G_PATH=/usr/local
+G_URL=https://github.com/git/git.git
+G_DIR=${G_URL##*/}
+G_DIR=${G_DIR%.*}
  
-yum -y install git
-yum -y groupinstall "Development Tools" 
-yum -y install openssl-devel libcurl-devel expat-devel perl-devel 
+yum --assumeyes install git
+yum --assumeyes groupinstall "Development Tools" 
+yum --assumeyes install openssl-devel libcurl-devel expat-devel perl-devel 
 cd $G_PATH
-git clone https://github.com/git/git
-cd git
+git clone "$G_URL"
+cd "$G_DIR"
 make 
-make prefix=$G_PATH install
+make prefix="$G_PATH" install
+
+rm --force --recursive "$G_PATH/$G_DIR"
  
 git --version
 
