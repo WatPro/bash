@@ -21,10 +21,10 @@ writelog() {
 }
 
 writelog '##############################'
-lastb -i > "$LASTB_IP"
-writelog "`cat "$LASTB_IP" | tail --lines=1`"
+lastb -i > "$LAST_IP"
+writelog "`cat "$LAST_IP" | tail --lines=1`"
 
-cat "$LASTB_IP" | cut --characters=23-38 | tr --delete ' ' | grep --regexp='^[1-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > "$LASTB_IP" 
+cat "$LAST_IP" | cut --characters=23-38 | tr --delete ' ' | grep --regexp='^[1-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > "$LASTB_IP" 
 last -i | cut --characters=23-38 | tr --delete ' ' | grep --regexp='^[1-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > "$LAST_IP" 
 iptables -L INPUT --numeric | awk 'NR<=2 || /^DROP /' | cut --characters=21-40 | tr --delete ' ' | grep --regexp='^[1-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > "$BLACKLIST" 
 
