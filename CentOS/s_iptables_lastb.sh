@@ -10,6 +10,7 @@
 LOGDIR="$1"
 THRESHOLD=100
 LAST_IP=/tmp/last_ip_list
+LASTB0_IP=/tmp/lastb_ip_list0
 LASTB_IP=/tmp/lastb_ip_list
 BLACKLIST=/tmp/blacklist_ip
 
@@ -21,10 +22,10 @@ writelog() {
 }
 
 writelog '##############################'
-lastb -i > "$LAST_IP"
-writelog "`cat "$LAST_IP" | tail --lines=1`"
+lastb -i > "$LASTB0_IP"
+writelog "`cat "$LASTB0_IP" | tail --lines=1`"
 
-cat "$LAST_IP" | cut --characters=23-38 | tr --delete ' ' | grep --regexp='^[1-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > "$LASTB_IP" 
+cat "$LASTB0_IP" | cut --characters=23-38 | tr --delete ' ' | grep --regexp='^[1-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > "$LASTB_IP" 
 last -i | cut --characters=23-38 | tr --delete ' ' | grep --regexp='^[1-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > "$LAST_IP" 
 iptables -L INPUT --numeric | awk 'NR<=2 || /^DROP /' | cut --characters=21-40 | tr --delete ' ' | grep --regexp='^[1-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > "$BLACKLIST" 
 
