@@ -25,9 +25,9 @@ writelog '##############################'
 lastb -i > "$LASTB0_IP"
 writelog "`cat "$LASTB0_IP" | tail --lines=1`"
 
-cat "$LASTB0_IP" | cut --characters=23-38 | tr --delete ' ' | grep --regexp='^[1-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > "$LASTB_IP" 
-last -i | cut --characters=23-38 | tr --delete ' ' | grep --regexp='^[1-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > "$LAST_IP" 
-iptables -L INPUT --numeric | awk 'NR<=2 || /^DROP /' | cut --characters=21-40 | tr --delete ' ' | grep --regexp='^[1-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > "$BLACKLIST" 
+cat "$LASTB0_IP" | cut --characters=23-38 | tr --delete ' ' | grep --regexp='^[1-9][0-9]\{0,2\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > "$LASTB_IP" 
+last -i | cut --characters=23-38 | tr --delete ' ' | grep --regexp='^[1-9][0-9]\{0,2\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > "$LAST_IP" 
+iptables -L INPUT --numeric | awk 'NR<=2 || /^DROP /' | cut --characters=21-40 | tr --delete ' ' | grep --regexp='^[1-9][0-9]\{0,2\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > "$BLACKLIST" 
 
 echo 'INPUT Packets Will Be DROPped From Below Sources: '
 grep --invert-match --file="$LAST_IP" "$LASTB_IP" | grep --invert-match --file="$BLACKLIST" | sort --ignore-nonprinting --random-sort | uniq --count | sort --numeric-sort --reverse | while read line
