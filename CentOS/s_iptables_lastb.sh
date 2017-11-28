@@ -7,7 +7,7 @@
 ########## Tested on CentOS 7.3                                       ##########
 ################################################################################
 # Basic Command
-# lastb -i | cut --characters=23-38 | tr --delete ' ' | sed '/^$/d' | sort --ignore-nonprinting --random-sort | uniq --count | sort --numeric-sort --reverse
+# lastb -i | cut --characters=23-38 | head --lines=-1 | sed '/^$/d' | sort --ignore-nonprinting --random-sort | uniq --count | sort --numeric-sort --reverse
  
 LOGDIR="$1"
 THRESHOLD=100
