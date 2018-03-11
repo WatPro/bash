@@ -3,7 +3,7 @@
 CHANGE_PASSWORD () {
     local USER=$1
     local PASS=$2
-    echo ${PASS} | passwd --stdin root
+    echo ${PASS} | passwd --stdin ${USER}
 }
 
 if [ -n "$1" ]
