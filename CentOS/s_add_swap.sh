@@ -15,12 +15,17 @@ add_swap () {
     else
         SIZE='1G'
     fi 
-    fallocate --length ${SIZE} ${SWAPFILE}
-    chmod 600 ${SWAPFILE}
-    ls --human-readable -l ${SWAPFILE}
+    if [ -f ${SWAPFILE} ]
+    then
+        echo "File Exists: ${SWAPFILE}" 
+    else 
+        fallocate --length ${SIZE} ${SWAPFILE}
+        chmod 600 ${SWAPFILE}
+        ls --human-readable -l ${SWAPFILE}
     
-    mkswap ${SWAPFILE}
-    swapon ${SWAPFILE}
+        mkswap ${SWAPFILE}
+        swapon ${SWAPFILE}
+    fi
 }
  
 add_swap /swapfile
