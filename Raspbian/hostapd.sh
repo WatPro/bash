@@ -15,7 +15,11 @@ then
    exit 1 
 fi
  
-sudo ip link add name br0 type bridge 
+BRIDGE0=`ip link show | sed --silent 's/^[0-9]\+:\s\([^:]\+\):.*$/\1/p' | grep br0` 
+if [ ! -n "$BRIDGE0" ]
+then
+   sudo ip link add name br0 type bridge  
+fi
 sudo ip link set br0 up
 sudo ip link set eth0 up
 sudo ip link set eth0 master br0 
