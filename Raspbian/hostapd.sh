@@ -3,6 +3,7 @@
 HOSTAPD_CONF='/etc/hostapd/hostapd.conf'
 HOSTAPD_SSID='RaspberryAccessPoint'
 HOSTAPD_PASSD='password'
+HOSTAPD_LOG='/var/log/hostapd.log'
  
 HOSTAPD=`which hostapd | head --lines=1`
 if [ ! -n "$HOSTAPD" ]
@@ -52,5 +53,5 @@ then
     sudo rm --force "$PID_FILE"
 fi
 
-sudo hostapd -P ${PID_FILE} ${HOSTAPD_CONF}
-
+sudo hostapd -dd -P "${PID_FILE}" -f "${HOSTAPD_LOG}" "${HOSTAPD_CONF}" 
+ 
