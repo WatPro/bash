@@ -53,5 +53,5 @@ then
     sudo rm --force "$PID_FILE"
 fi
 
-sudo hostapd -dd -P "${PID_FILE}" -f "${HOSTAPD_LOG}" "${HOSTAPD_CONF}" 
+sudo hostapd -dd -B -P "${PID_FILE}" -f "${HOSTAPD_LOG}" "${HOSTAPD_CONF}" 
  
