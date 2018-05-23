@@ -23,7 +23,7 @@ if [ ! -n "$BRIDGE0" ]
 then
    sudo ip link add name br0 type bridge 
    sudo ip address add ${LAN_ADDRESS} brd + dev br0
-   sudo ip route add ${LAN_ADDRESS} via ${GATEWAY} dev br0
+   sudo ip route add default via ${GATEWAY} dev br0
 fi
 sudo ip link set br0 up
 sudo ip link set eth0 up
