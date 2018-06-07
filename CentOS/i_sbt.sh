@@ -2,7 +2,7 @@
 
 if [ ! -n "`which javac`" ]
 then
-    sudo yum install openjdk-devel
+    sudo yum --assumeyes install java-openjdk
 fi
 
 baseurl=`curl https://bintray.com/sbt/rpm/rpm | sed --silent 's/^baseurl=//p'`
