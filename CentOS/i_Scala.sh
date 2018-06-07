@@ -13,5 +13,6 @@ then
 fi
 download_url="${baseurl}/${rpmfile}"
 curl --location "${scala_rpm}" --output "${scala_rpm##*/}"
-
+sudo yum --assume-yes install "${scala_rpm##*/}"
+rm --force "${scala_rpm##*/}"
 
