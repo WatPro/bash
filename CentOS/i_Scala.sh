@@ -2,7 +2,7 @@
 
 if [ ! -n "`which javac`" ]
 then
-    sudo yum --assumeyes install java-openjdk
+    sudo yum --assumeyes install java-devel
 fi
 
 scala_web='https://scala-lang.org/download/'
