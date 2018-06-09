@@ -1,5 +1,5 @@
 
-## Scripts that help install tools quickly. 
+## Scripts that help install tools in CentOS quickly. 
 
 ### Node.js
 
