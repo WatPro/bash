@@ -7,6 +7,10 @@ Find the official guide [here](https://nodejs.org/en/download/package-manager/#e
 
 ```bash
 curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
+sudo yum --assumeyes install nodejs
+
+which node
+node --version
 ```
 
 ### Nmap 
