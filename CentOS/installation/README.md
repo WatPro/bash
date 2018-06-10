@@ -1,6 +1,17 @@
 
 ## Scripts that help install tools on CentOS quickly. 
 
+### Git 
+
+```bash
+sudo yum --assumeyes install git
+
+which git
+git --version
+```
+
+For an up-to-date version, execute this [script](./Git.sh). 
+
 ### Node.js
 
 Find the official guide [here](https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora "Red Hat® Enterprise Linux® / RHEL, CentOS and Fedora").
