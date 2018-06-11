@@ -35,4 +35,13 @@ which nmap
 nmap --version
 ```
  
+### PostgreSQL
+
+```bash
+sudo yum --assumeyes install postgresql-server
+
+which postgres
+postgres --version
+```
+ 
 ### tcpdump
