@@ -17,3 +17,4 @@ sudo yum --assumeyes install "${rpmfile}"
 rm --force "${rpmfile}"
 
 which sbt
+
