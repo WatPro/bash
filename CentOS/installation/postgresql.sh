@@ -9,7 +9,6 @@ PGDATA='/usr/local/pgsql/data/'
 adduser "${USER_NAME}"
 mkdir --parent "${PGDATA}"
 chown  "${USER_NAME}" "${PGDATA}"
-
 su - "${USER_NAME}"
 initdb --pgdata="${PGDATA}"
 
