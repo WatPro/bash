@@ -20,5 +20,6 @@ initdb --pgdata="${PGDATA}"
 ########      pg_ctl -D /var/lib/pgsql/data -l logfile start            ########
 ################################################################################
 
+su
 pg_ctl --pgdata="${PGDATA}" --log='/var/log/postgres_logfile.log' start
 
