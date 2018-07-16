@@ -6,12 +6,9 @@ yum --assumeyes install postgresql-server
 
 USER_NAME='postgres'
 PGDATA='/usr/local/pgsql/data/'
-LOGFILE='/var/log/postgres_logfile.log'
 adduser "${USER_NAME}"
 mkdir --parent "${PGDATA}"
 chown  "${USER_NAME}" "${PGDATA}"
-touch "${LOGFILE}"
-chown  "${USER_NAME}" "${LOGFILE}"
 
 su - "${USER_NAME}"
 initdb --pgdata="${PGDATA}"
@@ -23,5 +20,5 @@ initdb --pgdata="${PGDATA}"
 ########      pg_ctl -D /var/lib/pgsql/data -l logfile start            ########
 ################################################################################
 
-pg_ctl --pgdata="${PGDATA}" --log="${LOGFILE}" start
+pg_ctl --pgdata="${PGDATA}" --log='logfile' start
 
