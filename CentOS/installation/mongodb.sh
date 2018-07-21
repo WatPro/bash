@@ -32,8 +32,8 @@ done
 
 rpm --upgrade -v --hash --replacepkgs ${FILENMAES[@]} 
 
-for FILE in ${FILENMAES[@]}
+for FILENAME in ${FILENAMES[@]}
 do
-    rm --force ./$FILE
+    rm --force "./$FILENAME"
 done
 
