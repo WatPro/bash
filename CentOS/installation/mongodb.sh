@@ -21,25 +21,18 @@ MDB_VERSION=`curl "${REDHAT_URL}" | sed --silent "s/^.*href='\([0-9]\+\(\.[0-9]\
 MDB_DIR_URL="${REDHAT_URL}${MDB_VERSION}/x86_64/RPMS/"
 MDB_RPM_LIST=`curl "${MDB_DIR_URL}" | sed --silent "s/^.*href='\([^']\+\.rpm\)'.*$/\1/p"`
 FILES=(mongodb-org-mongos mongodb-org-server mongodb-org-shell mongodb-org-tools mongodb-org)
+FILENAMES=()
 for FILE in ${FILES[@]}
 do
     FILENMAE=`echo "${MDB_RPM_LIST}" | grep "${FILE}-${MDB_VERSION}" | sort --version-sort | tail --lines=1 `
-    echo "${MDB_DIR_URL}${FILENMAE}"
+    FILENAMES+=("${FILENMAE}")
+    echo Downloading "${MDB_DIR_URL}${FILENMAE}"
+    curl "${MDB_DIR_URL}${FILENMAE}" --output "${FILENMAE}"
 done
 
+rpm --upgrade -v --hash --replacepkgs ${FILENMAES[@]} 
 
-F_PATH='https://repo.mongodb.org/yum/redhat/7/mongodb-org/3.4/x86_64/RPMS/'
-FILES=(mongodb-org-mongos-3.4.10-1.el7.x86_64.rpm mongodb-org-server-3.4.10-1.el7.x86_64.rpm mongodb-org-shell-3.4.10-1.el7.x86_64.rpm mongodb-org-tools-3.4.10-1.el7.x86_64.rpm mongodb-org-3.4.10-1.el7.x86_64.rpm)
-
-for FILE in ${FILES[@]}
-do
-    echo Downloading $FILE
-    curl --remote-name $F_PATH$FILE
-done
-
-rpm --upgrade -v --hash --replacepkgs ${FILES[@]} 
-
-for FILE in ${FILES[@]}
+for FILE in ${FILENMAES[@]}
 do
     rm --force ./$FILE
 done
