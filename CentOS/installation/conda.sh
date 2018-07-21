@@ -5,9 +5,9 @@ CONDA_FILE=${CONDA_URL##*/}
 
 yum --assumeyes install bzip2
 
-curl --remote-name "$CONDA_URL" 
+curl --remote-name "${CONDA_URL}" 
 bash "$CONDA_FILE" -b
-rm --force "$CONDA_FILE"
+rm --force "${CONDA_FILE}"
  
 #PATH="~/miniconda3/bin:$PATH"
 #conda install --yes jupyter

@@ -1,0 +1,47 @@
+
+## Scripts that help install tools on CentOS quickly. 
+
+### Git 
+
+```bash
+sudo yum --assumeyes install git
+
+which git
+git --version
+```
+
+For an up-to-date version, execute this [script](./Git.sh). 
+
+### Node.js
+
+Find the official guide [here](https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora "Red Hat® Enterprise Linux® / RHEL, CentOS and Fedora").
+
+```bash
+curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
+sudo yum --assumeyes install nodejs
+
+which node
+node --version
+```
+
+### Nmap 
+
+Install Network Mapper 
+ 
+```bash
+yum --assumeyes install nmap
+
+which nmap
+nmap --version
+```
+ 
+### PostgreSQL
+
+```bash
+sudo yum --assumeyes install postgresql-server
+
+which postgres
+postgres --version
+```
+ 
+### tcpdump

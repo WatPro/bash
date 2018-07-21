@@ -16,4 +16,5 @@ curl --location "${download_url}" --output "${rpmfile}"
 sudo yum --assumeyes install "${rpmfile}"
 rm --force "${rpmfile}"
 
+which sbt
 

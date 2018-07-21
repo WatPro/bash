@@ -6,7 +6,7 @@
 ################################################################
  
 yum --assumeyes groupinstall 'development tools'
-yum --assumeyes install openssl-devel
+yum --assumeyes install openssl-devel libffi-devel
  
 P_PATH='/usr/local'
 cd "$P_PATH" 
