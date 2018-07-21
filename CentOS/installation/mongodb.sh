@@ -17,13 +17,14 @@ cd /usr/local
 ########## # python2 -c 'import yum; yb=yum.YumBase(); print(yb.conf.yumvar)'             ##########
 ####################################################################################################
 REDHAT_URL='https://repo.mongodb.org/yum/redhat/7/mongodb-org/'
-MDB_VERSION=`curl "${REDHAT_URL}" | sed --silent "s/^.*href='\([0-9]\+\(\.[0-9]\+\)\?\)'.*$/\1/p" | sort --numeric-sort | tail --lines=1 `
+MDB_VERSION=`curl "${REDHAT_URL}" | sed --silent "s/^.*href='\([0-9]\+\(\.[0-9]\+\)\?\)'.*$/\1/p" | sort --version-sort | tail --lines=1 `
 MDB_DIR_URL="${REDHAT_URL}${MDB_VERSION}/x86_64/RPMS/"
 MDB_RPM_LIST=`curl "${MDB_DIR_URL}" | sed --silent "s/^.*href='\([^']\+\.rpm\)'.*$/\1/p"`
 FILES=(mongodb-org-mongos mongodb-org-server mongodb-org-shell mongodb-org-tools mongodb-org)
 for FILE in ${FILES[@]}
 do
-    echo "${MDB_RPM_LIST}" | grep "${FILE}-${MDB_VERSION}" | sort --version-sort | tail --lines=1
+    FILENMAE=`echo "${MDB_RPM_LIST}" | grep "${FILE}-${MDB_VERSION}" | sort --version-sort | tail --lines=1 `
+    echo "${MDB_DIR_URL}${FILENMAE}"
 done
 
 
