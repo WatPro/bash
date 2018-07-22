@@ -31,7 +31,7 @@ do
     curl "${MDB_DIR_URL}${FILENMAE}" --output "${FILENMAE}"
 done
 
-rpm --upgrade -v --hash --replacepkgs ${FILENMAES[@]} 
+rpm --upgrade -v --hash --replacepkgs ${FILENAMES[@]} 
 
 for FILENAME in ${FILENAMES[@]}
 do
