@@ -38,7 +38,8 @@ do
     rm --force "./$FILENAME"
 done
  
+mongo --version
+ 
 sudo systemctl start mongod
 
-mongo --version
  
