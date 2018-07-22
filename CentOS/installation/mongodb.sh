@@ -37,4 +37,5 @@ for FILENAME in ${FILENAMES[@]}
 do
     rm --force "./$FILENAME"
 done
-
+ 
+sudo systemctl start mongod
