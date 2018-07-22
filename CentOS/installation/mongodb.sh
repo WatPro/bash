@@ -16,7 +16,7 @@ cd /usr/local
 ########## Figure out the variables used in Yellowdog Updater, Modified:                  ##########
 ########## # python2 -c 'import yum; yb=yum.YumBase(); print(yb.conf.yumvar)'             ##########
 ####################################################################################################
-releasever=7
+releasever=`python2 -c 'import yum; yb=yum.YumBase(); print(yb.conf.yumvar)' | sed --silent "s/^.*'releasever':[ ]*'\([^']\+\)'.*$/\1/p"`
 REDHAT_URL="https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/"
 MDB_VERSION=`curl "${REDHAT_URL}" | sed --silent "s/^.*href='\([0-9]\+\(\.[0-9]\+\)\?\)'.*$/\1/p" | sort --version-sort | tail --lines=1 `
 MDB_DIR_URL="${REDHAT_URL}${MDB_VERSION}/x86_64/RPMS/"
