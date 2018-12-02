@@ -37,11 +37,19 @@ nmap --version
  
 ### PostgreSQL
 
-```bash
-sudo yum --assumeyes install postgresql-server
+See intall [script](/postgresql.sh). 
+ 
+A shortcut to enter PostgreSQL can be created as below. 
 
-which postgres
-postgres --version
+```bash
+cat <<"END_OF_FILE" > '/usr/local/bin/psql'
+#!/usr/bin/bash
+
+/usr/bin/psql --username='postgres' "$@"
+ 
+END_OF_FILE
+
+chmod a+x '/usr/local/bin/psql'
 ```
  
 ### tcpdump
