@@ -37,7 +37,7 @@ nmap --version
  
 ### PostgreSQL
 
-See intall [script](/postgresql.sh). 
+See intall [script](./postgresql.sh). 
  
 A shortcut to enter PostgreSQL can be created as below. 
 
