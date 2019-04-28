@@ -3,7 +3,16 @@
 
 ## https://www.postgresql.org/docs/current/static/install-short.html
 yum --assumeyes install postgresql-server
+ 
+## create links in /usr/local/bin/
+cat <<"END_OF_FILE" > '/usr/local/bin/psql'
+#!/usr/bin/bash
 
+/usr/bin/psql --username='postgres' "$@"
+ 
+END_OF_FILE
+chmod a+x '/usr/local/bin/psql'
+  
 USER_NAME='postgres'
 PGDATA='/usr/local/pgsql/data/'
 adduser "${USER_NAME}"
