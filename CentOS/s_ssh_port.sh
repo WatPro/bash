@@ -5,12 +5,14 @@
 ##########     Tested on CentOS 7                                     ##########
 ################################################################################
  
+arg_port="$1"
+ 
 SSHD_CONFIG=/etc/ssh/sshd_config
 FIREWALLD_SSH=/usr/lib/firewalld/services/ssh.xml
  
-if [[ "$1" =~ ^[1-9][0-9]{0,4}$ && "$1" -le 65535 ]]
+if [[ "$arg_port" =~ ^[1-9][0-9]{0,4}$ && "$1" -le 65535 ]]
 then
-    PORT="$1"
+    PORT="$arg_port"
     sed --in-place "s/^[#]\?\(Port \)[1-9][0-9]\{0,4\}$/\1$PORT/" "$SSHD_CONFIG"
     if [[ -e "$FIREWALLD_SSH" ]]
     then 
