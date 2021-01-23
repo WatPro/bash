@@ -14,10 +14,10 @@ For an up-to-date version, execute this [script](./Git.sh).
 
 ### Node.js
 
-Find the official guide [here](https://nodejs.org/en/download/package-manager/#enterprise-linux-and-fedora "Red Hat® Enterprise Linux® / RHEL, CentOS and Fedora").
+Find the official guide [here](https://nodejs.org/en/download/package-manager/#centos-fedora-and-red-hat-enterprise-linux "CentOS, Fedora and Red Hat Enterprise Linux") and find release information [here](https://nodejs.org/en/about/releases/ "Long Term Support (LTS) schedule").
 
 ```bash
-curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
+curl --silent --location https://rpm.nodesource.com/setup_12.x | sudo bash -
 sudo yum --assumeyes install nodejs
 
 which node
