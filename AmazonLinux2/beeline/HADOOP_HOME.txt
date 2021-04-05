@@ -1,1 +1,1 @@
-/home/ec2-user/bash/AmazonLinux2/beeline/hadoop-3.2.1
+/home/ec2-user/hadoop-3.2.1
