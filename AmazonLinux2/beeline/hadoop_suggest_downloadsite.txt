@@ -1,1 +1,0 @@
-https://ftp.heanet.ie/mirrors/www.apache.org/dist/hadoop/common/
