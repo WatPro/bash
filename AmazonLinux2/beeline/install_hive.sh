@@ -5,7 +5,7 @@
 ## export JAVA_HOME='/usr/lib/jvm/java-11-amazon-corretto.x86_64'
 
 dir="$1"
-if [ (! -d "${dir}") && (-d "${HOME}") ]
+if [[ ! -d "${dir}" ]] && [[ -d "${HOME}" ]]
 then
   dir="${HOME}"
 fi

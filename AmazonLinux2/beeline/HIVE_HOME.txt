@@ -1,1 +1,1 @@
-/home/ec2-user/bash/AmazonLinux2/beeline/apache-hive-3.1.2-bin/
+/home/ec2-user/apache-hive-3.1.2-bin/
